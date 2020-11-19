@@ -1,11 +1,11 @@
 # PyAipao简介
-    该github工程主要是使用GitHub Action来实现每天跑步工作。
+    该github工程主要是使用GitHub Actions来实现每天的跑步工作。
 # 准备工作
     1.一个github账号
     2.抓包抓到的IMEICode
     3.Server酱的SCKEY（可选，用于微信推送跑步结果）
 #  上手教程
-1.把代码clone到本地或者直接点击fork按钮将工程复制到你的仓库 
+1.点击fork按钮将工程复制到你的仓库 
 ![fork](IMAGE/Fork.png)
 
 2.获取 SCKEY
@@ -19,13 +19,11 @@
 4.配置Github Actions
 - 打开工程的`secrets`，在其中将SCKEY和IMEICode填入
 ![4.1](IMAGE/4.1.png)
-![4.2](IMAGE/4.2.png)
-![4.3](IMAGE/4.3.png)
 - 打开`autorun.yml`，将时间改为你想让它每天按时跑的时间，默认为每天上午9点。
-![4.4](IMAGE/4.4.png)
+![4.2](IMAGE/4.2.png)
   **注意**：`autorun.yml`里的时间为UTC时间而不是北京时间 [点我转换](http://www.timebie.com/cn/universalbeijing.php)
 
-到这步已经配置完成了，可以让它每天自己跑了。
+到这步已经配置完成了，它每天就会自己跑了。
 
 5.(可选)手动开始跑步
 - 如果想手动开始跑步，点击`Actions`，按照图示步骤操作即可。
@@ -34,3 +32,8 @@
 # 参考链接
 - [AutoAction](https://github.com/Saujyun/AutoAction)
 - [AiPao](https://github.com/LiaoGuoYin/AiPao)
+
+# 注意事项
+**License GPL v3.0**
+
+本文仅供研究，使用者造成的任何后果由使用者自行承担，与作者无关。
