@@ -1,0 +1,25 @@
+name: GitHub Actions Auto Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'   #在每天1:00（UTC时间）自动运行
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8.6
+    - name: Install requirements
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: AutoRun
+      env:  
+        IMEICODE: ${{ secrets.IMEICODE }}
+        SCKEY: ${{ secrets.SCKEY }}
+      run: python PyAipao.py
