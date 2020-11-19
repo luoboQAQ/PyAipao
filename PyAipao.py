@@ -25,8 +25,8 @@ class Aipaoer(object):
         self.token = ""
         self.runId = ""
         self.distance = 2000
-        self.minSpeed = 2.0
-        self.maxSpeed = 3.0
+        self.minSpeed = 1.6
+        self.maxSpeed = 4.0
 
     def __str__(self):
         return str(self.__dict__).replace("\'", "\"")
@@ -128,7 +128,11 @@ def weixin_send(SCKEY, body):
 def main():
     ends = ["|姓名|&nbsp;速度&nbsp;|&nbsp;距离&nbsp;|&nbsp;时间&nbsp;|&nbsp;步数&nbsp;|",
             "|:----:|:----:|:----:|:----:|:----:|"]
-    IMEICode = os.environ['IMEICODE']
+    try:
+        IMEICode = os.environ['IMEICODE']
+    except KeyError:
+        print("环境变量设置错误")
+        IMEICode = ''
     aipaoer = Aipaoer(IMEICode)
     if aipaoer.check_imeicode():
         aipaoer.get_info()
@@ -150,7 +154,12 @@ def main():
         "text": text,
         "desp": desp
     }
-    if(weixin_send(os.environ['SCKEY'], body)):
+    try:
+        SCKEY = os.environ['SCKEY']
+    except KeyError:
+        print("环境变量设置错误")
+        exit(1)
+    if(weixin_send(SCKEY, body)):
         print("微信推送成功")
     else:
         print("微信推送失败")
