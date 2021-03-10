@@ -35,6 +35,6 @@ class Servers(object):
         rsp = requests.post(url, json=json)
         try:
             if rsp.json()["errcode"] == 0:
-                return true
+                return True
         except:
-            return false
+            return False
