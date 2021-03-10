@@ -130,8 +130,14 @@ def main():
     try:
         IMEICode = os.environ['IMEICODE']
     except KeyError:
-        print("环境变量设置错误")
-        IMEICode = ''
+        print("未读取IMEICODE")
+        exit(1)
+
+    try:
+        ZXC = int(os.environ['ZXC'])
+    except KeyError:
+        ZXC = 0
+
     aipaoer = Aipaoer(IMEICode)
     if aipaoer.check_imeicode():
         aipaoer.get_info()
@@ -147,23 +153,32 @@ def main():
         ends = "IMEICode失效"
         text = "跑步结果-失败"
     print(ends)
-    servers = Servers("ww54f76dc199a97d51",
-                     "3MKLZX5D5yhSTeDUT_30yh9Tum16JMB8WSEAMHgLkGo", 1000003)
-    servers.get_access_token()
-    servers.send(text+'\n'+ends+'\n')
-    body = {
-        "text": text,
-        "desp": ends
-    }
-    try:
-        SCKEY = os.environ['SCKEY']
-    except KeyError:
-        print("环境变量设置错误")
-        exit(1)
-    if(weixin_send(SCKEY, body)):
-        print("微信推送成功")
-    else:
-        print("微信推送失败")
+    if ZXC == 1:
+        corpid = os.environ['CORPID']
+        corpsecret = os.environ['SECRET']
+        agentid = os.environ['AGENTID']
+        servers = Servers(corpid,
+                          corpsecret, agentid)
+        servers.get_access_token()
+        if servers.send_text(text+'\n'+ends+'\n'):
+            print("企业微信推送成功")
+        else:
+            print("企业微信推送失败")
+
+    elif ZXC == 2:
+        body = {
+            "text": text,
+            "desp": ends
+        }
+        try:
+            SCKEY = os.environ['SCKEY']
+        except KeyError:
+            print("SCKEY设置错误")
+            exit(1)
+        if weixin_send(SCKEY, body):
+            print("微信推送成功")
+        else:
+            print("微信推送失败")
 
 
 if __name__ == "__main__":
