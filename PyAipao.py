@@ -100,7 +100,8 @@ class Aipaoer(object):
             if rsp.json()["Success"]:
                 fin = {'msg': 'success',
                        'end': "速度："+str(my_speed)+" 路程："+str(my_distance) +
-                       " 用时："+str(my_costTime)+" 时速："+str(my_step)
+                       " 用时："+str(my_costTime//60)+":" +
+                       str(my_costTime % 60)+" 步数："+str(my_step)
                        }
                 return fin
         except KeyError:
