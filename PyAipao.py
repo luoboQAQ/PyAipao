@@ -98,12 +98,10 @@ class Aipaoer(object):
         rsp = requests.get(url, headers=headers)
         try:
             if rsp.json()["Success"]:
-                web = "<a href=\"http://http://sportsapp.aipao.me/Manage/UserDomain_SNSP_Records.aspx/MyResutls?userId=" + \
-                    str(self.userId)+"\">点我查看跑步历史</a>"
                 fin = {'msg': 'success',
                        'end': "速度："+str(my_speed)+" 路程："+str(my_distance) +
                        " 用时："+str(my_costTime//60)+":" +
-                       str(my_costTime % 60)+" 步数："+str(my_step)+'\n'+web
+                       str(my_costTime % 60)+" 步数："+str(my_step)
                        }
                 return fin
         except KeyError:
@@ -156,6 +154,10 @@ def main():
         ends = "IMEICode失效"
         text = "跑步结果-失败"
     print(ends)
+    if "成功" in text:
+        web = "<a href=\"http://http://sportsapp.aipao.me/Manage/UserDomain_SNSP_Records.aspx/MyResutls?userId=" + \
+            str(aipaoer.userId)+"\">点我查看跑步历史</a>"
+        ends.join(web)
     if ZXC == 1:
         corpid = os.environ['CORPID']
         corpsecret = os.environ['SECRET']
