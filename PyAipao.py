@@ -118,10 +118,10 @@ def weixin_send(SCKEY, body):
         desp：正文\n
     发送成功返回True，反之为False
     '''
-    url = "https://scfapi.ftqq.com/%s.send" % (SCKEY)
+    url = "https://sctapi.ftqq.com/%s.send" % (SCKEY)
     r = requests.post(url, data=body)
     okJson = r.json()
-    if (okJson["errmsg"] == "success"):
+    if (okJson["code"] == 0):
         return True
     else:
         return False

@@ -1,10 +1,15 @@
 # PyAipao简介
-该项目可实现阳光体育一键跑步，同时可基于GitHub Actions来实现云跑步。仅需一次配置，即可轻松跑完一学期ヾ(≧▽≦*)o
+该项目可实现阳光体育一键跑步，同时可基于GitHub Actions来实现云跑步。
+
+仅需一次配置，即可轻松跑完一学期ヾ(≧▽≦*)o
+
 # 准备工作
     1.一个github账号
     2.抓包抓到的IMEICode
     3.Server酱的SCKEY或企业微信（可选，用于微信推送跑步结果）
 #  云跑步上手教程
+
+图片加载不出来？[点我](https://luoboquq.gitee.io/p/pyaipao/)
 
 1.点击fork按钮将该仓库复制到你的仓库 
 ![fork](IMAGE/Fork.png)
@@ -41,9 +46,11 @@
 - （可选）使用企业微信应用消息推送，需要建立CORPID--填入企业ID，AGENTID--填入应用ID，SECRET--填入应用Secret
 
 - 打开`autorun.yml`，将时间改为你想让它每天按时跑的时间，默认为每天上午9点；同时修改推送方式，默认不推送。
-![4.2](IMAGE/4.2.png)
-  **注意**：`autorun.yml`里的时间为UTC时间而不是北京时间 [点我转换](http://www.timebie.com/cn/universalbeijing.php)
-  
+
+ ![4.2](IMAGE/4.2.png)
+
+**注意**：`autorun.yml`里的时间为UTC时间而不是北京时间 [点我转换](http://www.timebie.com/cn/universalbeijing.php)
+
 - 启用Github Actions
 
   ![workflow](IMAGE/workflow.png)
