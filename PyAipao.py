@@ -117,7 +117,7 @@ def weixin_send(SCKEY, body):
         desp：正文\n
     发送成功返回True，反之为False
     '''
-    url = "https://sc.ftqq.com/%s.send" % (SCKEY)
+    url = "https://scfapi.ftqq.com/%s.send" % (SCKEY)
     r = requests.post(url, data=body)
     okJson = r.json()
     if (okJson["errmsg"] == "success"):
@@ -156,7 +156,7 @@ def main():
     if ZXC == 1:
         corpid = os.environ['CORPID']
         corpsecret = os.environ['SECRET']
-        agentid = os.environ['AGENTID']
+        agentid = int(os.environ['AGENTID'])
         servers = Servers(corpid,
                           corpsecret, agentid)
         servers.get_access_token()
