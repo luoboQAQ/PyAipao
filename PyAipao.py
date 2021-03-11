@@ -98,10 +98,12 @@ class Aipaoer(object):
         rsp = requests.get(url, headers=headers)
         try:
             if rsp.json()["Success"]:
+                web = "<a href=\"http://http://sportsapp.aipao.me/Manage/UserDomain_SNSP_Records.aspx/MyResutls?userId=" + \
+                    str(self.userId)+"\">点我查看跑步历史</a>"
                 fin = {'msg': 'success',
                        'end': "速度："+str(my_speed)+" 路程："+str(my_distance) +
                        " 用时："+str(my_costTime//60)+":" +
-                       str(my_costTime % 60)+" 步数："+str(my_step)
+                       str(my_costTime % 60)+" 步数："+str(my_step)+'\n'+web
                        }
                 return fin
         except KeyError:
@@ -131,7 +133,7 @@ def main():
     try:
         IMEICode = os.environ['IMEICODE']
     except KeyError:
-        print("未读取IMEICODE")
+        print("未读取到IMEICODE")
         exit(1)
 
     try:
@@ -165,6 +167,7 @@ def main():
             print("企业微信推送成功")
         else:
             print("企业微信推送失败")
+            exit(1)
 
     elif ZXC == 2:
         body = {
@@ -180,6 +183,10 @@ def main():
             print("微信推送成功")
         else:
             print("微信推送失败")
+            exit(1)
+
+    if "失败" in text:
+        exit(1)
 
 
 if __name__ == "__main__":

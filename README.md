@@ -22,7 +22,7 @@
 
 3.1基于Server酱的推送
 
-- 完成Server酱的注册和绑定 [点我直达](http://scf.ftqq.com)
+- 完成Server酱的注册和绑定 [点我直达](http://sct.ftqq.com)
 - 在 [SendKey](https://sct.ftqq.com/sendkey)这一页中找到SendKey并记录
 ![SendKey](IMAGE/SendKey.png)
 
@@ -38,14 +38,14 @@
 
 4.配置Github Actions
 
-- 打开仓库的`secrets`，在其中将IMEICode填入
+- 打开仓库的`secrets`，在其中建立`IMEICODE`并将IMEICode填入
   ![4.1](IMAGE/4.1.png)
 
-- （可选）使用Server酱推送，需要建立SCKEY并填入SendKey
+- （可选）使用Server酱推送，需要建立`SCKEY`并填入SendKey
 
-- （可选）使用企业微信应用消息推送，需要建立CORPID--填入企业ID，AGENTID--填入应用ID，SECRET--填入应用Secret
+- （可选）使用企业微信应用消息推送，需要建立`CORPID`--填入企业ID，`AGENTID`--填入应用ID，`SECRET`--填入应用Secret
 
-- 打开`autorun.yml`，将时间改为你想让它每天按时跑的时间，默认为每天上午9点；同时修改推送方式，默认不推送。
+- 打开`Code`-`.github/workflows`-`autorun.yml`，点击右上角的铅笔图标进行编辑，将时间改为你想让它每天按时跑的时间，默认为每天上午9点；同时修改推送方式，默认不推送。
 
  ![4.2](IMAGE/4.2.png)
 
@@ -54,6 +54,8 @@
 - 启用Github Actions
 
   ![workflow](IMAGE/workflow.png)
+
+![4.3](IMAGE/4.3.png)
 
 到这步已经配置完成了，它每天就会自己跑了。
 
