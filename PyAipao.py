@@ -155,7 +155,7 @@ def main():
         text = "跑步结果-失败"
     print(ends)
     if "成功" in text:
-        web = "\n<a href=\"http://http://sportsapp.aipao.me/Manage/UserDomain_SNSP_Records.aspx/MyResutls?userId=" + \
+        web = "\n<a href=\"http://sportsapp.aipao.me/Manage/UserDomain_SNSP_Records.aspx/MyResutls?userId=" + \
             str(aipaoer.userId)+"\">点我查看跑步历史</a>"
         ends = ends+web
     if ZXC == 1:
