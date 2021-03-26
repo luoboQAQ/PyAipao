@@ -18,7 +18,7 @@ jobs:
         pip install -r requirements.txt
     - name: AutoRun
       env:  
-        ZXC: 1    #0为不推送，1为企业微信应用消息推送，2为Server酱推送
+        ZXC: 0    #0为不推送，1为企业微信应用消息推送，2为Server酱推送
         IMEICODE: ${{ secrets.IMEICODE }}
         SCKEY: ${{ secrets.SCKEY }}
         CORPID: ${{ secrets.CORPID }}
