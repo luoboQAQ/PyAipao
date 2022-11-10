@@ -1,15 +1,16 @@
-# PyAipao简介
+# PyAipao
+## 简介
+**注意：**此项目为1年前所完成，本次上传只是作为补档，不确定现在是否能使用！
+
 该项目可实现阳光体育一键跑步，同时可基于GitHub Actions来实现云跑步。
 
 仅需一次配置，即可轻松跑完一学期ヾ(≧▽≦*)o
 
-# 准备工作
+## 准备工作
     1.一个github账号
     2.抓包抓到的IMEICode
     3.Server酱的SCKEY或企业微信（可选，用于微信推送跑步结果）
-#  云跑步上手教程
-
-图片加载不出来？[点我](https://luoboquq.gitee.io/p/pyaipao/)
+##  云跑步上手教程
 
 1.点击fork按钮将该仓库复制到你的仓库 
 ![fork](IMAGE/Fork.png)
@@ -70,11 +71,11 @@
 
   ![6.1](IMAGE/6.1.png)
 
-# 参考链接
+## 参考链接
 - [AutoAction](https://github.com/Saujyun/AutoAction)
 - [AiPao](https://github.com/LiaoGuoYin/AiPao)
 
-# 注意事项
+## 注意事项
 **License GPL v3.0**
 
 本文仅供研究，使用者造成的任何后果由使用者自行承担，与作者无关。
